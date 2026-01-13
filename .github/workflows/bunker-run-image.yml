@@ -28,6 +28,9 @@ jobs:
           java-version: "17"
           cache: maven
 
+      - name: Build webapps frontend
+        run: ./mvnw -B -pl webapps -am generate-resources
+
       - name: Build run distro (tests skipped)
         run: ./mvnw -B -Dmaven.test.skip=true -pl distro/run/distro -am package
 
