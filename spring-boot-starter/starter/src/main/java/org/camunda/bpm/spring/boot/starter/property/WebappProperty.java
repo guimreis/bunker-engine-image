@@ -22,7 +22,7 @@ import static org.camunda.bpm.spring.boot.starter.property.CamundaBpmProperties.
 
 public class WebappProperty {
 
-  public static final String DEFAULT_APP_PATH = "/camunda";
+  public static final String DEFAULT_APP_PATH = "/engine";
 
   public static final String PREFIX = CamundaBpmProperties.PREFIX + ".webapp";
 
