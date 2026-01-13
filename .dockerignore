@@ -6,3 +6,4 @@
 **/node_modules
 **/target/*
 !distro/tomcat/distro/target/camunda-bpm-tomcat-*.tar.gz
+!distro/run/distro/target/camunda-bpm-run-*.tar.gz

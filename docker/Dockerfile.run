@@ -1,0 +1,25 @@
+ARG CAMUNDA_VERSION=7.24.0
+ARG POSTGRESQL_VERSION=42.7.3
+
+FROM eclipse-temurin:17-jre-jammy
+
+ARG CAMUNDA_VERSION
+ARG POSTGRESQL_VERSION
+ENV CAMUNDA_HOME=/opt/bunker/run
+
+RUN set -eux; \
+    groupadd -r bunker || true; \
+    useradd -r -g bunker -d /opt/bunker -s /usr/sbin/nologin bunker || true; \
+    mkdir -p /opt/bunker/run; \
+    chown -R bunker:bunker /opt/bunker
+
+ADD distro/run/distro/target/camunda-bpm-run-${CAMUNDA_VERSION}.tar.gz /opt/bunker/run/
+ADD https://repo1.maven.org/maven2/org/postgresql/postgresql/${POSTGRESQL_VERSION}/postgresql-${POSTGRESQL_VERSION}.jar /opt/bunker/run/configuration/userlib/postgresql.jar
+
+RUN set -eux; \
+    chown -R bunker:bunker /opt/bunker/run
+
+WORKDIR /opt/bunker/run
+EXPOSE 8080
+USER bunker
+CMD ["/opt/bunker/run/internal/run.sh", "start", "--rest", "--webapps"]
