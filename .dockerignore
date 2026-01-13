@@ -1,0 +1,8 @@
+.git
+.github
+**/.idea
+**/.vscode
+**/.DS_Store
+**/node_modules
+**/target/*
+!distro/tomcat/distro/target/camunda-bpm-tomcat-*.tar.gz
