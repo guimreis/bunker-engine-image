@@ -22,4 +22,4 @@ RUN set -eux; \
 WORKDIR /opt/bunker/run
 EXPOSE 8080
 USER bunker
-CMD ["/opt/bunker/run/internal/run.sh", "start", "--rest", "--webapps"]
+CMD ["/opt/bunker/run/internal/run.sh", "start"]
