@@ -137,28 +137,13 @@ module.exports = function(ngModule, appRoot, appName) {
       $translateProvider.useSanitizeValueStrategy('escapeParameters');
 
       $translateProvider.determinePreferredLanguage(function() {
-        var nav = window.navigator;
-        var rawLang =
-          (angular.isArray(nav.languages)
-            ? nav.languages[0]
-            : nav.language ||
-              nav.browserLanguage ||
-              nav.systemLanguage ||
-              nav.userLanguage) || '';
-        var lang = rawLang.toLowerCase().replace(/_/g, '-');
+        var preferred = 'pt-br';
         var normalizedAvail = avail.map(function(localeKey) {
           return localeKey.toLowerCase();
         });
-
-        var fullIdx = normalizedAvail.indexOf(lang);
-        if (fullIdx > -1) {
-          return avail[fullIdx];
-        }
-
-        var base = lang.split('-')[0];
-        var baseIdx = normalizedAvail.indexOf(base);
-        if (baseIdx > -1) {
-          return avail[baseIdx];
+        var preferredIdx = normalizedAvail.indexOf(preferred);
+        if (preferredIdx > -1) {
+          return avail[preferredIdx];
         }
 
         return fallback;

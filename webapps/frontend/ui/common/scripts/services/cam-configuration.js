@@ -29,7 +29,7 @@ var defaultConfig = {
     short: 'LL'
   },
   locales: {
-    availableLocales: ['en'],
+    availableLocales: ['en', 'de', 'pt-br'],
     fallbackLocale: 'en'
   },
   skipCustomListeners: {
