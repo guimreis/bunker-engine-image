@@ -53,6 +53,10 @@ export default {
   //   'availableLocales': ['en', 'de'],
   //   'fallbackLocale': 'en'
   // },
+  locales: {
+    availableLocales: ['en', 'de', 'pt-br'],
+    fallbackLocale: 'en'
+  },
   // csrfCookieName: 'XSRF-TOKEN',
   // disableWelcomeMessage: false,
   // userOperationLogAnnotationLength: 4000

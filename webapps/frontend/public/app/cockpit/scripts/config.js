@@ -52,6 +52,10 @@ export default {
   //   'availableLocales': ['en', 'de'],
   //   'fallbackLocale': 'en'
   // },
+  locales: {
+    availableLocales: ['en', 'de', 'pt-br'],
+    fallbackLocale: 'en'
+  },
   // skipCustomListeners: {
   //   default: true,
   //   hidden: false

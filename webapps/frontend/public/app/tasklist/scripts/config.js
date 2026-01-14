@@ -32,6 +32,10 @@ export default {
   //    "availableLocales": ["en", "de"],
   //    "fallbackLocale": "en"
   //  },
+  locales: {
+    availableLocales: ['en', 'de', 'pt-br'],
+    fallbackLocale: 'en'
+  },
   // customScripts: [
   //   // If you have a folder called 'my-custom-script' (in the 'tasklist' folder)
   //   // with a file called 'customScript.js' in it

@@ -138,20 +138,30 @@ module.exports = function(ngModule, appRoot, appName) {
 
       $translateProvider.determinePreferredLanguage(function() {
         var nav = window.navigator;
-        var browserLang = (
+        var rawLang =
           (angular.isArray(nav.languages)
             ? nav.languages[0]
             : nav.language ||
               nav.browserLanguage ||
               nav.systemLanguage ||
-              nav.userLanguage) || ''
-        ).split('-');
-        var idx = avail.indexOf(browserLang[0].toLowerCase());
-        if (idx > -1) {
-          return avail[idx];
-        } else {
-          return fallback;
+              nav.userLanguage) || '';
+        var lang = rawLang.toLowerCase().replace(/_/g, '-');
+        var normalizedAvail = avail.map(function(localeKey) {
+          return localeKey.toLowerCase();
+        });
+
+        var fullIdx = normalizedAvail.indexOf(lang);
+        if (fullIdx > -1) {
+          return avail[fullIdx];
         }
+
+        var base = lang.split('-')[0];
+        var baseIdx = normalizedAvail.indexOf(base);
+        if (baseIdx > -1) {
+          return avail[baseIdx];
+        }
+
+        return fallback;
       });
     }
   ]);

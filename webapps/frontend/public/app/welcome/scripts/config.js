@@ -47,6 +47,10 @@ export default {
   //    "availableLocales": ["en", "de"],
   //    "fallbackLocale": "en"
   //  },
+  locales: {
+    availableLocales: ['en', 'de', 'pt-br'],
+    fallbackLocale: 'en'
+  },
   // links: [
   //   {
   //     label: 'Angular.js Docs',
